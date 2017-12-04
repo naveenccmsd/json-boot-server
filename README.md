@@ -1,10 +1,6 @@
-# RESTEasy Spring Boot Starter with Gcloud
+# Mixing RESTEasy Spring Boot Starter with Gcloud
 
-There was no RESTEasy Spring Boot starter out there, so PayPal team decided to create one and share it with the community.<br>
-
-This Spring Boot starter is fully functional, has ZERO PayPal specific code on it, and can be used normally by any regular Spring Boot application that wants to have REST endpoints and prefers RESTEasy as the JAX-RS implementation.
-
-Also, this RESTEasy Spring Boot starter integrated from Paypal Resteasy started and Gcloud examples.
+This RESTEasy Spring Boot starter integrated from Paypal Resteasy started and Gcloud examples.
 
 ## Features
 * Enables RESTEasy for Spring Boot applications
@@ -27,3 +23,9 @@ Also, this RESTEasy Spring Boot starter integrated from Paypal Resteasy started 
 1. Deploy to Gcloud `mvn appengine:deploy`
 
 1. Visit `http://YOUR_PROJECT.appspot.com`.
+
+## Links ##
+ - [Paypal Rest easy](https://github.com/paypal/resteasy-spring-boot)
+ - [Gcloud quickstart](https://cloud.google.com/appengine/docs/standard/java/quickstart-java8)
+ - [Gcloud starte](https://github.com/rbarbioni/gcloud-spring-boot-starter)
+
