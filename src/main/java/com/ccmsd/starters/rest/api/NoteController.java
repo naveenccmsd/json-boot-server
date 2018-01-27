@@ -18,9 +18,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.ccmsd.starters.rest.dao.NoteRepository;
+import com.ccmsd.starters.rest.dao.entity.AuthUser;
 import com.ccmsd.starters.rest.dao.AuthUserRepository;
 import com.ccmsd.starters.vo.Note;
-import com.ccmsd.starters.vo.AuthUser;
 
 @Consumes(
 { "application/json" })

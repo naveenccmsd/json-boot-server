@@ -1,4 +1,4 @@
-package com.ccmsd.starters.vo;
+package com.ccmsd.starters.rest.dao.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -32,7 +32,7 @@ import java.util.List;
  */
 
 @Entity
-@Table(name = "AUTH_USERS")
+@Table(name = "auth_user")
 public class AuthUser implements UserDetails
 {
 
@@ -40,10 +40,11 @@ public class AuthUser implements UserDetails
 
 	@Id
 	@GenericGenerator(name = "sequence_user_id", strategy = "com.ccmsd.starters.vo.UserIdGenerator")
-	@GeneratedValue(generator = "sequence_user_id") 
-	private Long id;
+	@GeneratedValue(generator = "sequence_user_id")
+	@Column(name = "user_id")
+	private Long userId;
 
-	@Column(name = "username")
+	@Column(name = "user_name")
 	private String username;
 
 	@JsonIgnore
@@ -53,31 +54,22 @@ public class AuthUser implements UserDetails
 	@Column(name = "enabled")
 	private boolean enabled;
 
-	@Column(nullable = false, updatable = false)
+
+	@Column(name = "created_at", nullable = false, updatable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	@CreatedDate
 	private Date createdAt;
 
-	@Column(nullable = false)
+	@Column(name = "updated_at", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	@LastModifiedDate
 	private Date updatedAt;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(
-			name = "user_authority", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-			inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
+			name = "user_authority", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "authority_id"))
 	private List<Authority> authorities;
-
-	public Long getId()
-	{
-		return id;
-	}
-
-	public void setId(Long id)
-	{
-		this.id = id;
-	}
 
 	public String getUsername()
 	{
@@ -100,6 +92,18 @@ public class AuthUser implements UserDetails
 		this.setUpdatedAt(now);
 		this.password = password;
 	}
+
+	public Long getUserId()
+	{
+		return userId;
+	}
+
+	public void setUserId(Long userId)
+	{
+		this.userId = userId;
+	}
+
+	
 
 	public void setAuthorities(List<Authority> authorities)
 	{

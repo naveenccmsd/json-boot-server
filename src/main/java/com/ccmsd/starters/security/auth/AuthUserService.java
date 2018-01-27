@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.ccmsd.starters.rest.dao.AuthUserRepository;
-import com.ccmsd.starters.vo.AuthUser;
+import com.ccmsd.starters.rest.dao.entity.AuthUser;
 
 /**
  * Created by fan.jin on 2016-10-31.

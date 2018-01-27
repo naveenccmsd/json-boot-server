@@ -9,8 +9,8 @@ import org.springframework.mobile.device.Device;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import com.ccmsd.starters.rest.dao.entity.AuthUser;
 import com.ccmsd.starters.rest.util.TimeProvider;
-import com.ccmsd.starters.vo.AuthUser;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;

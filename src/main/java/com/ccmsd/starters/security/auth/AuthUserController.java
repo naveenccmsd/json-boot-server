@@ -11,8 +11,9 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import com.ccmsd.starters.rest.dao.entity.AuthUser;
 import com.ccmsd.starters.rest.util.DeviceProvider;
-import com.ccmsd.starters.vo.AuthUser;
 import com.ccmsd.starters.vo.UserTokenState;
 
 import javax.servlet.http.HttpServletRequest;

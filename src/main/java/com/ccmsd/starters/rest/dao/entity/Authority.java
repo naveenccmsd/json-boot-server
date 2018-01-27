@@ -1,4 +1,4 @@
-package com.ccmsd.starters.vo;
+package com.ccmsd.starters.rest.dao.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
@@ -10,46 +10,46 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "AUTHORITY")
+@Table(name = "authority")
 public class Authority implements GrantedAuthority
 {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "id")
+	@Column(name = "authority_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
+	Long authorityId;
 
-	@Column(name = "name")
-	String name;
+	@Column(name = "authority_name")
+	String authorityName;
 
 	@Override
 	public String getAuthority()
 	{
-		return name;
+		return authorityName;
 	}
 
 	public void setName(String name)
 	{
-		this.name = name;
+		this.authorityName = name;
 	}
 
 	@JsonIgnore
 	public String getName()
 	{
-		return name;
+		return authorityName;
 	}
 
 	@JsonIgnore
 	public Long getId()
 	{
-		return id;
+		return authorityId;
 	}
 
 	public void setId(Long id)
 	{
-		this.id = id;
+		this.authorityId = id;
 	}
 
 }
