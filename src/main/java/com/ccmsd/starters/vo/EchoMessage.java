@@ -1,4 +1,4 @@
-package com.ccmsd.starters.rest.api.impl;
+package com.ccmsd.starters.vo;
 
 /**
  * A simple echo message, containing the text to be echoed

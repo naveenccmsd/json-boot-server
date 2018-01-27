@@ -1,4 +1,4 @@
-package com.ccmsd.starters.rest.init;
+package com.ccmsd.starters.init;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

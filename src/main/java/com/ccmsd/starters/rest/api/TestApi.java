@@ -7,13 +7,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-@Path("/v1")
+@Path("/test")
 @Consumes({ "application/json" })
 @Produces({ "application/json" })
 public interface TestApi
 {
 
 	@GET
-	@Path("/test/{msg}")
+	@Path("/{msg}")
 	Response loadTaxHistory(@PathParam("msg") String transactionId);
 }

@@ -8,6 +8,14 @@
 	<artifactId>Gcloud-boot-rest-starter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
+	<profiles>
+		<profile>
+			<id>maven</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+	</profiles>
 
 	<description>Simple test application for the Resteasy Spring Boot starter</description>
 
@@ -22,6 +30,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<resteasy.version>3.1.4.Final</resteasy.version>
+		<!-- <INSTANCE_CONNECTION_NAME>jbot-187222:asia-south1:zeroapp</INSTANCE_CONNECTION_NAME>
+		<user>root</user>
+		<password>root</password>
+		<database>ccmsd_app</database> -->
 	</properties>
 
 	<dependencies>
@@ -52,6 +64,40 @@
 			<artifactId>resteasy-validator-provider-11</artifactId>
 			<version>${resteasy.version}</version>
 		</dependency>
+
+		<!-- MySQL database driver -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mobile</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+		</dependency>
+		<!-- <dependency>
+			<groupId>com.google.cloud.sql</groupId>
+			<artifactId>mysql-socket-factory</artifactId>
+			<version>1.0.5</version>
+		</dependency> -->
+
 	</dependencies>
 
 	<build>
