@@ -1,6 +1,5 @@
 package com.ccmsd.starters.init;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.ccmsd.starters.vo.ErrorMessage;
@@ -13,23 +12,14 @@ import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
-/**
- * Custom exception mapper for 404 cases.
- *
- * @author Fabio Carvalho (facarvalho@paypal.com or fabiocarvalho777@gmail.com)
- */
 @Component
 @Provider
 public class CustomExceptionMapper implements ExceptionMapper<Exception>
 {
 
-	@Autowired
-	private CustomSingletonBean customSingletonBean;
-
 	@Override
 	public Response toResponse(Exception ex)
 	{
-		customSingletonBean.amIAlive();
 		ex.printStackTrace();
 		if (ex instanceof NotFoundException)
 		{
@@ -45,7 +35,7 @@ public class CustomExceptionMapper implements ExceptionMapper<Exception>
 
 	}
 
-	private Response buildException(Status status, Object entity)
+	public static Response buildException(Status status, Object entity)
 	{
 		ErrorMessage error = new ErrorMessage();
 		error.setStatus(status.getStatusCode());

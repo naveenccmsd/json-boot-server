@@ -19,10 +19,15 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
+
 import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.MapType;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +36,8 @@ import org.slf4j.LoggerFactory;
  */
 public class Commons
 {
-	  private final static Logger logger = LoggerFactory.getLogger(Commons.class);
+	private final static Logger logger = LoggerFactory.getLogger(Commons.class);
+
 	/**
 	 * TODO : This is a temporary solutions .Will remove below method before live once TaxEngine
 	 * deployment completed
@@ -40,7 +46,8 @@ public class Commons
 	public static void disableSSLVerification()
 	{
 
-		TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager()
+		TrustManager[] trustAllCerts = new TrustManager[]
+		{ new X509TrustManager()
 		{
 			public X509Certificate[] getAcceptedIssuers()
 			{
@@ -122,12 +129,11 @@ public class Commons
 			return mapper.readValue(content, class1);
 		} catch (IOException e)
 		{
-			logger.error( "Failed convert Json to POJO");
+			logger.error("Failed convert Json to POJO");
 			throw e;
 		}
 	}
 
-	
 	public static boolean isDateValid(String dateToValidate, String dateFromat)
 	{
 		if (dateToValidate == null)
@@ -168,5 +174,31 @@ public class Commons
 		if (value != null)
 			roundedValue = value.setScale(2, BigDecimal.ROUND_HALF_EVEN);
 		return roundedValue.toPlainString();
+	}
+
+	public static Map<String, Object> loadJson(String path, Class<?> class1)
+	{
+		try
+		{
+			ObjectMapper mapper = new ObjectMapper();
+			MapType type = mapper.getTypeFactory().constructMapType(Map.class, String.class, Object.class);
+			return mapper.readValue(class1.getClass().getResource(path), type);
+		} catch (IOException e)
+		{
+			return null;
+		}
+	}
+
+	public static <T> Object loadXml(String path, Class<T> class1)
+	{
+		try
+		{
+			JAXBContext jaxbContext = JAXBContext.newInstance(class1);
+			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+			return jaxbUnmarshaller.unmarshal(class1.getClass().getResource(path));
+		} catch (Exception e)
+		{
+			return null;
+		}
 	}
 }
