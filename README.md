@@ -1,31 +1,21 @@
-# Mixing RESTEasy Spring Boot Starter with Gcloud
+# JSONFileApi
 
-This RESTEasy Spring Boot starter integrated from Paypal Resteasy started and Gcloud examples.
+[JSONFileApi](https://jsonplaceholder.github.io) is a simple fake REST API for testing and prototyping.
 
-## Features
-* Enables RESTEasy for Spring Boot applications
-* Supports JAX-RS providers, resources and sub-resources as Spring beans
-* Supports RESTEasy Asynchronous Job Service
-* Supports Gcloud Deploy
+It's inspired from  [JSONplaceholder](https://jsonplaceholder.typicode.com/).
 
-## Quick start
+JSONFileApi is developed with Spring boot.
 
-1. Log in using gcloud SDK (`gcloud auth login` in command line)
+## Features / TODO (From JSONPlaceholder)
 
-1. Set your current project using `gcloud config set project PROJECT_ID`
+* No registration
+* Zero-config
+* Basic API
+* "Has many" relationships
+* Filters and nested resources
+* Cross-domain ([CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) and [JSONP](http://en.wikipedia.org/wiki/JSONP))
+* Supports GET, POST, PUT, PATCH, DELETE and OPTIONS verbs
+* HTTP or HTTPS
+* Compatible with React, Angular, Vue, Ember, ...
 
-1. Compile using Maven: `mvn install -DskipTests` in command line from your base project directory
-
-1. Run `mvn spring-boot:run`
-
-1. Visit `http://localhost:8080`
-
-1. Deploy to Gcloud `mvn appengine:deploy`
-
-1. Visit `http://YOUR_PROJECT.appspot.com`.
-
-## Links ##
- - [Paypal Rest easy](https://github.com/paypal/resteasy-spring-boot)
- - [Gcloud quickstart](https://cloud.google.com/appengine/docs/standard/java/quickstart-java8)
- - [Gcloud starte](https://github.com/rbarbioni/gcloud-spring-boot-starter)
-
+**********Development in progress **************
